@@ -5,3 +5,49 @@
 @media(max-width:620px){.header{height:68px;padding:0 20px}.header-note{margin-right:auto}.mobile-menu{display:block;padding:7px}.navigation{display:none;position:absolute;top:67px;left:0;right:0;padding:22px 20px;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:20px}.navigation.open{display:flex}.contact-link{justify-content:space-between}.page-grid,.section,.manifesto-inner,.contact-inner{width:calc(100% - 40px)}.hero{grid-template-columns:1fr;padding:48px 0 70px;gap:30px}.hero-text{grid-row:2}.portrait-side{grid-row:1;height:390px;margin:0 6px}.portrait-frame{height:355px;width:min(290px,76%)}.margin-note{right:1px}.side-stamp{left:4px;bottom:21px}.hero h1{font-size:clamp(45px,11vw,63px);letter-spacing:-3px;margin-top:23px}.hero-lead{font-size:13px}.hero-actions{align-items:flex-start;flex-direction:column;gap:18px}.hero-foot{margin-top:34px;gap:13px;flex-direction:column}.scroll-hint{bottom:21px}.manifesto-inner{grid-template-columns:1fr auto;gap:14px;padding:29px 0}.section-index{grid-column:1/-1}.manifesto p{font-size:20px}.manifesto-sign{font-size:8px;align-self:end}.section{padding-block:72px}.section-head{display:block;margin-bottom:35px}.section-head h2{font-size:clamp(39px,9vw,52px);letter-spacing:-2.5px;margin-top:19px}.section-head>p{margin-top:18px;font-size:11px}.project-row{grid-template-columns:26px minmax(0,1fr) 25px;gap:12px;padding:19px 0}.project-number{grid-column:1;grid-row:1;padding-top:2px}.project-art{grid-column:2;grid-row:1;width:100%;height:105px}.project-info{grid-column:2;grid-row:2}.project-arrow{grid-column:3;grid-row:1}.project-info h3{font-size:21px}.project-info p{font-size:11px}.stack span{font-size:7px}.work-foot{font-size:7px;line-height:1.8;flex-direction:column;gap:5px}.path-inner{padding-block:72px}.timeline article{grid-template-columns:1fr 12px;gap:10px;padding:20px 0}.timeline-date{grid-column:1;grid-row:1}.timeline-marker{grid-column:2;grid-row:1}.timeline article>div:last-child{grid-column:1/-1;grid-row:2;padding-left:0}.timeline h3{font-size:19px}.skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.skill-grid article{padding:17px;min-height:170px}.skill-grid h3{font-size:15px;margin-top:21px}.skill-grid p{font-size:9px}.human-skills>div{gap:6px}.human-skills b{font-size:9px}.contact-inner{padding-block:72px 32px}.contact-inner h2{font-size:clamp(46px,11vw,64px);letter-spacing:-3px}.contact-ornament{position:static;margin-top:27px}.contact-details{margin-top:37px;gap:15px 20px}.contact-details a{font-size:8px}.footer{padding:20px;flex-wrap:wrap}.footer>span{order:3;width:100%;line-height:1.8}.footer>a:last-child{font-size:7px}}
 @media(max-width:370px){.header-note{display:none}.hero h1{font-size:43px}.skill-grid{grid-template-columns:1fr}.skill-grid article{min-height:145px}.portrait-frame{width:78%}.hero-actions .button{font-size:10px}.project-type{font-size:7px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+
+/* Motion system: editorial reveal + tactile 3D */
+:root{--ease-out:cubic-bezier(.16,1,.3,1)}
+::selection{background:#c9ef69;color:#252720}
+body{background-image:radial-gradient(ellipse at 10% 12%,#ffffff65,transparent 32%),radial-gradient(ellipse at 90% 52%,#d8ddc855,transparent 35%)}
+.header{animation:header-drop .8s var(--ease-out) both}
+.hero-text .kicker{animation:rise-in .8s .12s var(--ease-out) both}
+.hero h1{animation:rise-in .9s .2s var(--ease-out) both}
+.hero-lead{animation:rise-in .9s .3s var(--ease-out) both}
+.hero-actions{animation:rise-in .9s .4s var(--ease-out) both}
+.hero-foot{animation:rise-in .9s .5s var(--ease-out) both}
+.portrait-side{perspective:1100px;transform-style:preserve-3d}
+.portrait-frame{transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) rotateZ(1.3deg);transition:transform .18s ease-out,box-shadow .4s;transform-style:preserve-3d;box-shadow:18px 18px 0 #d9d8cb,0 28px 70px #292a2821}
+.portrait-frame:hover{box-shadow:24px 25px 0 #d9d8cb,0 35px 85px #292a2835}
+.portrait-img{transition:filter .6s,transform .8s var(--ease-out)}
+.portrait-frame:hover .portrait-img{filter:saturate(1.02) contrast(1.04);transform:scale(1.018)}
+.orbit{position:absolute;border:1px solid #9aa78470;border-radius:50%;pointer-events:none;transform-style:preserve-3d}
+.orbit-one{width:440px;height:190px;transform:rotate(-28deg) rotateX(63deg);animation:orbit-spin 19s linear infinite}
+.orbit-two{width:395px;height:250px;transform:rotate(47deg) rotateX(65deg);border-style:dashed;animation:orbit-spin 27s linear infinite reverse}
+.float-chip{position:absolute;z-index:3;display:flex;align-items:center;gap:8px;padding:11px 13px;background:#f7f6efed;border:1px solid #d7d8c9;box-shadow:0 12px 30px #25272012;font:8px var(--mono);letter-spacing:.6px;backdrop-filter:blur(10px);animation:floaty 5s ease-in-out infinite}
+.float-chip svg{color:#829849}.chip-code{top:78px;left:2px;transform:rotate(-5deg);animation-delay:-1.3s}.chip-api{right:-5px;top:190px;transform:rotate(4deg);animation-delay:-3s}.chip-iot{left:8px;bottom:75px;transform:rotate(3deg);animation-delay:-2s}
+.side-stamp{animation:stamp-pulse 5s ease-in-out infinite}
+.scroll-hint span{display:inline-block;animation:nudge-down 1.7s ease-in-out infinite}
+.manifesto p em{background:linear-gradient(90deg,#75864b,#a1b95f,#75864b);background-size:200% auto;background-clip:text;-webkit-background-clip:text;color:transparent;animation:green-shimmer 5s linear infinite}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .85s var(--ease-out),transform .85s var(--ease-out)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.project-row.reveal:nth-child(2){transition-delay:.08s}.project-row.reveal:nth-child(3){transition-delay:.16s}.project-row.reveal:nth-child(4){transition-delay:.24s}.project-row.reveal:nth-child(5){transition-delay:.32s}.project-row.reveal:nth-child(6){transition-delay:.4s}
+.project-art{transition:transform .5s var(--ease-out),box-shadow .5s}.project-row:hover .project-art{transform:perspective(600px) rotateY(-8deg) rotateX(4deg) translateX(3px);box-shadow:8px 8px 0 #2527200c}
+.project-art>span{transition:transform .5s var(--ease-out)}.project-row:hover .project-art>span{transform:scale(1.16) rotate(-7deg)}
+.project-arrow{transition:transform .35s var(--ease-out),background .3s}.project-row:hover .project-arrow{transform:rotate(45deg) scale(1.08)}
+.skill-card{transition:background .35s,transform .4s var(--ease-out)}.skill-card:hover{background:#e7e9dc;transform:translateY(-5px)}.skill-card:hover .skill-mark{transform:translate(3px,-3px)}.skill-mark{transition:transform .3s}
+.timeline article{transition:padding-left .4s var(--ease-out)}.timeline article:hover{padding-left:9px}.timeline article:hover .timeline-marker{background:#c9ef69;box-shadow:0 0 0 5px #a8c95a50}
+.button svg,.text-link svg{transition:transform .3s var(--ease-out)}.button:hover svg,.text-link:hover svg{transform:translate(3px,-3px)}
+.contact-section{position:relative;overflow:hidden}.contact-section:after{content:'YO';position:absolute;right:-.035em;bottom:-.43em;font-size:clamp(250px,40vw,560px);font-weight:700;letter-spacing:-.12em;line-height:1;color:#ffffff22;pointer-events:none}.contact-inner>*{position:relative;z-index:1}
+.contact-ornament span{display:inline-block;animation:spin-slow 15s linear infinite}
+@keyframes header-drop{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes rise-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -11px}}
+@keyframes orbit-spin{from{rotate:0deg}to{rotate:360deg}}
+@keyframes stamp-pulse{0%,100%{transform:rotate(-12deg) scale(1)}50%{transform:rotate(-7deg) scale(1.055)}}
+@keyframes nudge-down{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@keyframes green-shimmer{to{background-position:200% center}}
+@keyframes spin-slow{to{transform:rotate(360deg)}}
+@media(max-width:620px){.orbit-one{width:320px;height:145px}.orbit-two{width:290px;height:180px}.float-chip{font-size:7px;padding:9px 10px}.chip-code{top:55px;left:-2px}.chip-api{right:-4px;top:155px}.chip-iot{bottom:55px;left:0}.portrait-frame{transform:rotate(1deg)!important}.reveal{transform:translateY(18px)}.contact-section:after{font-size:300px;right:-.1em;bottom:-.23em}}
+@media(prefers-reduced-motion:reduce){.header,.hero-text .kicker,.hero h1,.hero-lead,.hero-actions,.hero-foot,.side-stamp,.scroll-hint span,.manifesto p em,.float-chip,.orbit,.contact-ornament span{animation:none!important}.reveal{opacity:1;transform:none;transition:none}.portrait-frame,.project-art,.project-row,.skill-card{transition:none!important}}
