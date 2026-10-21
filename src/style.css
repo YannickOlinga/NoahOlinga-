@@ -51,3 +51,21 @@ body{background-image:radial-gradient(ellipse at 10% 12%,#ffffff65,transparent 3
 @keyframes spin-slow{to{transform:rotate(360deg)}}
 @media(max-width:620px){.orbit-one{width:320px;height:145px}.orbit-two{width:290px;height:180px}.float-chip{font-size:7px;padding:9px 10px}.chip-code{top:55px;left:-2px}.chip-api{right:-4px;top:155px}.chip-iot{bottom:55px;left:0}.portrait-frame{transform:rotate(1deg)!important}.reveal{transform:translateY(18px)}.contact-section:after{font-size:300px;right:-.1em;bottom:-.23em}}
 @media(prefers-reduced-motion:reduce){.header,.hero-text .kicker,.hero h1,.hero-lead,.hero-actions,.hero-foot,.side-stamp,.scroll-hint span,.manifesto p em,.float-chip,.orbit,.contact-ornament span{animation:none!important}.reveal{opacity:1;transform:none;transition:none}.portrait-frame,.project-art,.project-row,.skill-card{transition:none!important}}
+
+
+/* WebGL / motion-design layer */
+.portrait-side{isolation:isolate}
+.webgl-scene{position:absolute;z-index:0;width:118%;height:112%;left:-9%;top:-5%;pointer-events:none;opacity:.9;filter:drop-shadow(0 0 16px #a7c95a38)}
+.portrait-frame{z-index:2;transform-style:preserve-3d;will-change:transform}
+.portrait-top,.portrait-bottom{position:relative;z-index:2}
+.float-chip{z-index:4}
+.orbit{z-index:1}
+.margin-note,.side-stamp{z-index:3}
+.motion-marquee{width:100%;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#e7e8dc;padding:17px 0;transform:rotate(-1deg) scale(1.02);margin:6px 0 26px}
+.motion-track{display:flex;width:max-content;animation:marquee-travel 32s linear infinite;will-change:transform}
+.motion-marquee:hover .motion-track{animation-play-state:paused}
+.motion-set{display:flex;align-items:center;gap:27px;padding-right:27px;white-space:nowrap;font:10px var(--mono);letter-spacing:1.5px;color:#56594c}
+.motion-set b{font-size:15px;color:#8ca63f;font-weight:400}
+@keyframes marquee-travel{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:620px){.webgl-scene{width:130%;height:105%;left:-15%;top:-2%;opacity:.72}.motion-marquee{padding:13px 0;margin:0 0 18px}.motion-track{animation-duration:24s}.motion-set{font-size:9px;gap:18px;padding-right:18px}}
+@media(prefers-reduced-motion:reduce){.motion-track{animation:none;transform:none}.webgl-scene{opacity:.45}}
